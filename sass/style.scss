@@ -3,5 +3,16 @@ Extension Name: 31-w kenneth theme du cours
 Author: kenneth Gbeti
 Author URI: https://github.com/kennethEdwin147/31w-extension-tp1/tree/tp1
 SiteGround ext URI: https://eddym91.sg-host.com/582-6n3-stage-285h/
-Description: Développement d’une extension et amélioration d’un thème
+Description:  Carrousel d'images créé à partir d'une galerie d'image.
 */
+
+.carrousel {
+    position: absolute;
+    width: 50vw;
+    height: 50vh;
+
+    top: 25vh;
+    left: 25vw;
+
+    background-color: cadetblue;
+}
