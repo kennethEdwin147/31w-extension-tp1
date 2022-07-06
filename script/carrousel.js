@@ -1,19 +1,45 @@
 (function () {
 
-    console.log('ui');
+    console.log('Début du carrousel')
+   
+    let elmGalerie = document.querySelector('.galerie')
+    let elmGalerieImg = elmGalerie.querySelectorAll("figure figure img")
+    let elmCarrousel = document.querySelector('.carrousel')
+    let elmCarrousel__figure = document.querySelector('.carrousel__figure')
+    let elmCarrousel__fermeture = document.querySelector('.carrousel__fermeture')
+    let elmCarrousel__radio = document.querySelector('.carrousel__radio')
 
-    // Création dynamique d'une galerie.
-
-    let elGalerie = document.querySelector('.galerie'); // Récuperation de galerie créé dans l'éditeur gutemberg 
-    let elGalerie__img = elGalerie.querySelectorAll('.galerie figure img'); // Récuperation des images de la galerie gutemberg
-
-
-    for (let i = 0; i < elGalerie__img.length; i++) {
-        elGalerie__img[i].addEventListener('mousedown', function () {  //Image clické ? : on accède récupère son 'scr';
-            let src = elGalerie__img[i].getAttribute('src');
-
-            console.log(src);
+    let index = 0
+    for (const img of elmGalerieImg) {
+        ajouter_elmImg(img)
+        ajouter_elmRadio()
+        img.addEventListener('mousedown', function(){
+            elmCarrousel.classList.add('carrousel__ouvrir') 
         });
     }
+
+    function ajouter_elmImg(img) {
+        let elmImg = document.createElement('img')
+        elmImg.classList.add('carrousel__figure__img')
+        elmImg.setAttribute('src', img.getAttribute('src'))
+        elmCarrousel__figure.appendChild(elmImg)
+        elmImg.dataset.index = index
+    }
+
+    function ajouter_elmRadio() {
+        let elmRadio = document.createElement('input')
+        elmRadio.setAttribute('type','radio')
+        elmRadio.setAttribute('name','radImg')
+        elmRadio.dataset.index = index
+        index = index+1
+        elmCarrousel__radio.appendChild(elmRadio)
+        elmRadio.addEventListener('mousedown', function () {
+            elmCarrousel__figure.children[this.dataset.index].classList.add('carrousel__figure__img--activer')
+        })
+    }
+  
+    elmCarrousel__fermeture.addEventListener('mousedown', function () {
+        elmCarrousel.classList.remove('carrousel__ouvrir') 
+    });
 
 })();
