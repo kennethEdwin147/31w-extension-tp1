@@ -4,6 +4,7 @@
  * Author: kenneth Gbeti
  * Description: Carrousel d'images créé à partir d'une galerie d'image.
  * Author URI: https://github.com/kennethEdwin147/31w-extension-tp1
+ * SiteGround ext URI: https://eddym91.sg-host.com/582-6n3-stage-285h/
  */ 
 function carrousel_31w_enqueue()
 {
